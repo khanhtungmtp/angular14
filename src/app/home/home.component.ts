@@ -8,8 +8,15 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   constructor() { }
-
+  headerName = "Angular 14 tutorial"
+  colorName = "green"
+  monney = 1000
+  isDisable = false;
   ngOnInit(): void {
+  }
+
+  functionClick(val: string) {
+    alert(val)
   }
 
 }

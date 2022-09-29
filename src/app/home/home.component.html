@@ -1,1 +1,6 @@
-<p>home works!</p>
+<p>{{headerName | uppercase}}</p>
+<p [style.color]="colorName" [style.font-size]="'100px'">{{monney | currency: 'VND'}}</p>
+<button  (click)="functionClick('ok')"></button>
+<br>
+<input [disabled]="isDisable"  type="text" #txt (change)="functionClick(txt.value)">
+<input type="text" [(ngModel)]="headerName">
