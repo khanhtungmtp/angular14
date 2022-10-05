@@ -8,9 +8,13 @@ import { ContactComponent } from './contact/contact.component';
 import { StatusComponent } from './status/status.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AddComponent } from './contact/add/add.component';
-import { AccessRoutingModule } from './access/access-routing.module';
+//import { AccessRoutingModule } from './access/access-routing.module';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from 'src/material.module';
+import { HttpClientModule } from '@angular/common/http';
+import { UserComponent } from './user/user.component';
+
 
 @NgModule({
   declarations: [
@@ -19,16 +23,20 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AboutComponent,
     ContactComponent,
     StatusComponent,
-    AddComponent
+    AddComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MaterialModule,
+    HttpClientModule
    // AccessRoutingModule
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
