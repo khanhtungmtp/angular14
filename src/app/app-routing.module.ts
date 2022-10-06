@@ -1,3 +1,5 @@
+import { RoleGuard } from './_core/_guard/role.guard';
+import { UserComponent } from './user/user.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './about/about.component';
@@ -10,6 +12,7 @@ import { AuthGuard } from './_core/_guard/auth/auth.guard';
 const routes: Routes = [
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'about', component: AboutComponent, canActivate: [AuthGuard] },
+  { path: 'user', component: UserComponent, canActivate: [RoleGuard] },
   {
     path: 'contact',
     component: ContactComponent,

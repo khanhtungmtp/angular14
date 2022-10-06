@@ -1,3 +1,4 @@
+import { TokenInterceptorService } from './_core/_services/token-interceptor.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -9,11 +10,12 @@ import { StatusComponent } from './status/status.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AddComponent } from './contact/add/add.component';
 //import { AccessRoutingModule } from './access/access-routing.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from 'src/material.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { UserComponent } from './user/user.component';
+import { UserModalPopupComponent } from './user-modal-popup/user-modal-popup.component';
 
 
 @NgModule({
@@ -24,18 +26,25 @@ import { UserComponent } from './user/user.component';
     ContactComponent,
     StatusComponent,
     AddComponent,
-    UserComponent
+    UserComponent,
+    UserModalPopupComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     MaterialModule,
     HttpClientModule
-   // AccessRoutingModule
+    // AccessRoutingModule
   ],
   providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })
